@@ -9,8 +9,10 @@ This repository intentionally contains source code, build specifications, versio
 - `war3_reforged_trainer.py`: trainer application and its protocol/service modules.
 - `war3_hotkey_tool.py`: hotkey application, adapters, transport, and native helper sources.
 - `war3_selection_limit_tool.py`: selection-limit application and native helper sources.
-- `versions/`: source-only snapshots for the historical Git tags available in the source archive.
+- `versions/`: source-only snapshots for historical tool tags plus the current working source snapshot.
 - `tools/`: native sources, version profiles, bridge headers, and build helpers.
+
+The version names under `versions/` refer to the tool being maintained. They are not Warcraft III game versions. Game build compatibility is represented separately by `profiles/*.json` and `hotkey_profiles/*.json`.
 
 ## Build prerequisites
 
@@ -28,9 +30,8 @@ Before building a release, run the relevant unit tests and verify that the gener
 
 ## Version layout
 
-The root source is the current working source selected for publication. Historical source snapshots are under `versions/`; see `VERSION_SOURCE_MAP.md` for the tag-to-snapshot mapping. Versioned source is kept for inspection and reproducible maintenance, not as a promise that every historical build remains compatible with current game binaries.
+The root source is the current working source selected for publication. The same source-only tree is also archived at `versions/current-20261001/` so the latest worktree state has an explicit snapshot. Historical source snapshots are under `versions/`; see `VERSION_SOURCE_MAP.md` for the tag-to-snapshot mapping. Versioned source is kept for inspection and reproducible maintenance, not as a promise that every historical build remains compatible with current game binaries.
 
 ## Publication boundary
 
 Do not add runtime logs, user-provided files, game assets, packaged binaries, memory dumps, screenshots, or reverse-engineering work products to this repository. Put those in a separate private case directory when needed for debugging.
-
