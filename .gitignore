@@ -1,0 +1,39 @@
+# Build output and local caches
+build/
+dist/
+build-*/
+dist-*/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.pyc
+
+# Native and packaged artifacts. Build them locally from the checked-in sources.
+*.exe
+*.dll
+*.obj
+*.lib
+*.exp
+*.pdb
+*.map
+*.bin
+*.dmp
+
+# Runtime diagnostics and user data
+log/
+logs/
+*.log
+*.jsonl
+*.trace
+*.dump
+*.crash
+
+# Local IDE and OS files
+.idea/
+.vscode/
+.vs/
+.playwright-mcp/
+Thumbs.db
+Desktop.ini
+
