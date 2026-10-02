@@ -6,6 +6,7 @@ The source archive was assembled from the existing local Git tags and the curren
 
 - Trainer history: `v0.2.0` through `v0.2.12`, `v0.25`, `v1.0.0` through `v1.0.19`, `v2.0.0` through `v2.0.9`, and `v2.1.0-beta`.
 - Hotkey history: `hotkeys-v1.0.0` and `hotkeys-v1.0.1`.
+- Hotkey release `hotkeys-v2.0.0`: `versions/hotkeys-v2.0.0/`. This is the user-tested standalone hotkey tool released on 2026-10-02, including both 3.0.0.24268 and 3.0.1.24323 game adapters, native build inputs, the packaging dependency fix and runtime diagnostics. Only the hotkey component is updated in the root; trainer and selection-limit components retain their previous sources.
 - Current combined source snapshot: `versions/current-20261001/`. This includes the latest trainer source overlay, the latest hotkey source and adapter/transport changes, the selection-limit tool source, native source inputs, build specifications, tests, and current profile data from the worktree used for this publication.
 
 The root files include the current source overlay for the trainer, hotkey tool, selection-limit tool, native helper sources, current profile data, tests, and build specifications. The `current-20261001` snapshot is the explicit copy of that latest source set. Historical snapshots retain only source/configuration files and the required icon assets. They do not include packaged binaries or diagnostics.
@@ -15,7 +16,7 @@ The root files include the current source overlay for the trainer, hotkey tool, 
 These are compatibility data, not tool releases:
 
 - Trainer profiles: `profiles/3.0.0.24268.json` and `profiles/3.0.1.24323.json`.
-- Hotkey profile: `hotkey_profiles/3.0.0.24268.json`.
+- Hotkey profiles: `hotkey_profiles/3.0.0.24268.json` and `hotkey_profiles/3.0.1.24323.json`.
 
 A game build update may require a profile or adapter change without changing the trainer's own version number.
 

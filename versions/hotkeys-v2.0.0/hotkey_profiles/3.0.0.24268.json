@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "bridge_protocol": 4,
+  "adapter_version": 1,
+  "game_version": "3.0.0.24268",
+  "fingerprint": {
+    "machine": 34404,
+    "timestamp": 1789189744,
+    "image_size": 236277760
+  },
+  "native_table": {
+    "name": 40,
+    "handler": 48,
+    "signature": 64,
+    "table": 40,
+    "head": 24,
+    "terminal": 16,
+    "next": 32
+  },
+  "metadata_sections": [
+    {
+      "rva": 36044800,
+      "size": 12764160
+    }
+  ],
+  "natives": {
+    "ConvertOriginFrameType": "(I)Horiginframetype;",
+    "BlzGetOriginFrame": "(Horiginframetype;I)Hframehandle;",
+    "BlzFrameClick": "(Hframehandle;)V",
+    "CreateGroup": "()Hgroup;",
+    "GetLocalPlayer": "()Hplayer;",
+    "GroupEnumUnitsSelected": "(Hgroup;Hplayer;Hboolexpr;)V",
+    "FirstOfGroup": "(Hgroup;)Hunit;",
+    "DestroyGroup": "(Hgroup;)V",
+    "GetOwningPlayer": "(Hunit;)Hplayer;",
+    "GetPlayerId": "(Hplayer;)I"
+  },
+  "command_bar": {
+    "functions": {
+      "game_ui_get": 15808928,
+      "set_hotkey": 16002000,
+      "set_hotkey_hero_only": 16002144,
+      "set_hotkey_quick_cast": 16002256,
+      "save_hotkeys": 16000640,
+      "refresh_command_bar": 15997856
+    },
+    "command_bar_offset": 1728,
+    "submenu_link_offset": 744,
+    "checks": [
+      {
+        "rva": 16002000,
+        "bytes": "48895c241048896c2418488974242041564883ec208bf2410fb6e98bd9458bf0"
+      },
+      {
+        "rva": 16002144,
+        "bytes": "48895c24084889742410574883ec208bfa410fb6f08bd983fa04733083fb0373"
+      },
+      {
+        "rva": 16002256,
+        "bytes": "48895c24084889742410574883ec208bfa410fb6f08bd983fa04733083fb0373"
+      },
+      {
+        "rva": 16000640,
+        "bytes": "40535541574881ec50010000488b054506fa014833c44889842440010000e88d"
+      },
+      {
+        "rva": 15997856,
+        "bytes": "40574883ec20488bf9e8e28a5e0084c00f850b02000048897424380f1f440000"
+      },
+      {
+        "rva": 13167011,
+        "bytes": "33d2b101e8f44f2800488b88c0060000e8e8312b00"
+      },
+      {
+        "rva": 13167091,
+        "bytes": "33d2b101e8a44f2800488b88c0060000e898312b00"
+      }
+    ],
+    "override_enable": "requires_unique_runtime_reference",
+    "get_hotkey_rva": 15989440,
+    "guarded_call": {
+      "return_rva": 1633185,
+      "call_bytes": "e89ffeffff4883c428c3",
+      "unwind_rva": 45506172,
+      "unwind_bytes": "0104010004420000",
+      "requires_shadow_stack_disabled": true,
+      "validation": "candidate"
+    },
+    "diagnostic_virtual_entries": [
+      16714656,
+      16712336
+    ]
+  },
+  "validation": {
+    "native_signatures": "schema_and_fixture",
+    "command_bar_functions": "offline_captured_code",
+    "override_enable": "unresolved_in_available_capture",
+    "game_effect": "not_run"
+  },
+  "native_context": {
+    "tls_index_rva": 49657128,
+    "native_slot": 56
+  },
+  "protected_native_rvas": {
+    "ConvertOriginFrameType": 13181008,
+    "BlzGetOriginFrame": 13272304,
+    "BlzFrameClick": 13231552,
+    "CreateGroup": 13197120,
+    "GetLocalPlayer": 13267920,
+    "GroupEnumUnitsSelected": 13306016,
+    "FirstOfGroup": 13220752,
+    "DestroyGroup": 13212112,
+    "GetOwningPlayer": 13273456,
+    "GetPlayerId": 13273936
+  }
+}
