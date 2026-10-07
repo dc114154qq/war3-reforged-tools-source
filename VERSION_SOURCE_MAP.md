@@ -1,23 +1,16 @@
-# Version Source Map
+# 改键软件版本源码
 
-The source archive was assembled from the existing local Git tags and the current source worktree. The names below are **tool versions**, not game versions.
+这些是改键工具版本，不是修改器版本，也不是游戏版本。
 
-## Tool Versions
+| 改键工具版本 | 源码目录 | 构建方式 |
+| --- | --- | --- |
+| 1.0.0 | `versions/hotkeys-v1.0.0/` | 在该目录执行 `python tools/build_hotkeys.py` |
+| 1.0.1 | `versions/hotkeys-v1.0.1/` | 在该目录执行 `python tools/build_hotkeys.py` |
+| 2.0.0 | 仓库根目录及 `versions/hotkeys-v2.0.0/` | 在对应目录执行 `python tools/build_war3_hotkeys.py` |
 
-- Trainer history: `v0.2.0` through `v0.2.12`, `v0.25`, `v1.0.0` through `v1.0.19`, `v2.0.0` through `v2.0.9`, and `v2.1.0-beta`.
-- Hotkey history: `hotkeys-v1.0.0` and `hotkeys-v1.0.1`.
-- Hotkey release `hotkeys-v2.0.0`: `versions/hotkeys-v2.0.0/`. This is the user-tested standalone hotkey tool released on 2026-10-02, including both 3.0.0.24268 and 3.0.1.24323 game adapters, native build inputs, the packaging dependency fix and runtime diagnostics. Only the hotkey component is updated in the root; trainer and selection-limit components retain their previous sources.
-- Current combined source snapshot: `versions/current-20261001/`. This includes the latest trainer source overlay, the latest hotkey source and adapter/transport changes, the selection-limit tool source, native source inputs, build specifications, tests, and current profile data from the worktree used for this publication.
+Windows x64、Python 3.12、LLVM Clang、MSVC/Windows SDK 是构建前提。先安装根目录 `requirements-hotkeys.txt`。
+旧版源码及 spec 与原存档保持一致；为 1.0.0/1.0.1 补充的构建脚本仅把 helper 编译及 PyInstaller 命令串起来。
+1.x 输出 `dist/War3ReforgedHotkeys.exe`，2.0.0 输出 `dist/War3ReforgedHotkeys-v2.0.0.exe`。
+旧版构建成功不等于可用于当前 3.x 游戏，不将旧版本宣称为新游戏适配。
 
-The root files include the current source overlay for the trainer, hotkey tool, selection-limit tool, native helper sources, current profile data, tests, and build specifications. The `current-20261001` snapshot is the explicit copy of that latest source set. Historical snapshots retain only source/configuration files and the required icon assets. They do not include packaged binaries or diagnostics.
-
-## Game Build Profiles
-
-These are compatibility data, not tool releases:
-
-- Trainer profiles: `profiles/3.0.0.24268.json` and `profiles/3.0.1.24323.json`.
-- Hotkey profiles: `hotkey_profiles/3.0.0.24268.json` and `hotkey_profiles/3.0.1.24323.json`.
-
-A game build update may require a profile or adapter change without changing the trainer's own version number.
-
-The source tree is not a release artifact. To publish a build, use the matching specification and record the source commit, game build fingerprint, adapter/profile version, bridge ABI, file hashes, and verification gaps separately.
+本次仅清理发布范围，不修改软件功能或替换用户已经验证的 EXE；旧混合源码仍保存在本地原仓库。
