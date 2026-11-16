@@ -39,7 +39,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, default=ROOT/'tools/war3_hotkey_bridge.dll')
     parser.add_argument('--check-header', action='store_true')
-    parser.add_argument('--game-version', choices=('3.0.0.24268', '3.0.1.24323'), default='3.0.0.24268')
+    parser.add_argument('--game-version', choices=('3.0.0.24268', '3.0.1.24323', '3.0.1.24371'), default='3.0.0.24268')
     args = parser.parse_args()
     from war3_hotkey_adapters import load_profiles
     profiles = [p for p in load_profiles() if p['game_version'] == args.game_version]
@@ -47,7 +47,9 @@ def main():
         raise ValueError('Exactly one adapter for this bridge is required')
     text = header_text(profiles[0])
     is_301=args.game_version=='3.0.1.24323'
-    header = ROOT/('tools/war3_hotkey_profiles_301.h' if is_301 else 'tools/war3_hotkey_profiles.h')
+    is_24371=args.game_version=='3.0.1.24371'
+    header = ROOT/('tools/war3_hotkey_profiles_24371.h' if is_24371 else
+                  'tools/war3_hotkey_profiles_301.h' if is_301 else 'tools/war3_hotkey_profiles.h')
     if args.check_header:
         if header.read_text(encoding='utf-8') != text:
             raise ValueError('Generated C profile differs from JSON adapter')
@@ -62,11 +64,13 @@ def main():
     output = args.output.resolve()
     if is_301 and output == (ROOT/'tools/war3_hotkey_bridge.dll').resolve():
         output=ROOT/'tools/war3_hotkey_bridge_301.dll'
+    if is_24371 and output == (ROOT/'tools/war3_hotkey_bridge.dll').resolve():
+        output=ROOT/'tools/war3_hotkey_bridge_24371.dll'
     output.parent.mkdir(parents=True, exist_ok=True)
     candidate = output.with_name(output.stem+'.candidate.dll')
     subprocess.run([compiler, '--target=x86_64-pc-windows-msvc', '-shared', '-O2',
         '-fexceptions', '-fasync-exceptions', '-fno-stack-protector', '-fno-builtin',
-        '-nostdlib', *(['-DHOTKEY_GAME_301'] if is_301 else []),
+        '-nostdlib', *(['-DHOTKEY_GAME_24371'] if is_24371 else ['-DHOTKEY_GAME_301'] if is_301 else []),
         str(ROOT/'tools/war3_hotkey_bridge.c'), '-o', str(candidate),
         '-Wl,/entry:DllMain,/nodefaultlib,/alternatename:__C_specific_handler=BridgeSpecificHandler',
         '-luser32', '-lkernel32'], cwd=ROOT, check=True)

@@ -1,6 +1,8 @@
 #include <windows.h>
 #include <stdint.h>
-#ifdef HOTKEY_GAME_301
+#if defined(HOTKEY_GAME_24371)
+#include "war3_hotkey_profiles_24371.h"
+#elif defined(HOTKEY_GAME_301)
 #include "war3_hotkey_profiles_301.h"
 #else
 #include "war3_hotkey_profiles.h"

@@ -76,7 +76,8 @@ def load_profiles():
         fp = data['fingerprint']
         if set(fp) != {'machine', 'timestamp', 'image_size'}:
             raise RuntimeError('改键适配指纹不完整')
-        if data.get('bridge_file') not in (None, 'war3_hotkey_bridge.dll', 'war3_hotkey_bridge_301.dll'):
+        if data.get('bridge_file') not in (None, 'war3_hotkey_bridge.dll', 'war3_hotkey_bridge_301.dll',
+                                           'war3_hotkey_bridge_24371.dll'):
             raise RuntimeError('改键适配包指定了未知的桥模块')
         profiles.append(data)
     return profiles
@@ -280,7 +281,7 @@ def resolve_command_bar(memory, identity, enabled_resolver):
             # code page even though the profile's exact build is confirmed.
             # The bridge still validates the callable in the game thread.
             if (profile.get('game_version') != '3.0.0.24268' and
-                    not (profile.get('game_version') == '3.0.1.24323' and
+                    not (profile.get('game_version') in ('3.0.1.24323', '3.0.1.24371') and
                          config.get('runtime_code_validation') is True)):
                 raise RuntimeError('3.0.0 命令栏代码校验读取失败；不会使用旧版偏移')
             deferred = True

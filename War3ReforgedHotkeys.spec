@@ -5,7 +5,7 @@ from PyInstaller.utils.hooks import collect_dynamic_libs
 a = Analysis(
     ['war3_hotkey_tool.py'],
     pathex=[],
-    binaries=[('tools/war3_hotkey_native_helper.dll', 'tools'), ('tools/war3_hotkey_bridge.dll', 'tools'), ('tools/war3_hotkey_bridge_301.dll', 'tools'), *collect_dynamic_libs('capstone')],
+    binaries=[('tools/war3_hotkey_native_helper.dll', 'tools'), ('tools/war3_hotkey_bridge.dll', 'tools'), ('tools/war3_hotkey_bridge_301.dll', 'tools'), ('tools/war3_hotkey_bridge_24371.dll', 'tools'), *collect_dynamic_libs('capstone')],
     datas=[('assets/hotkey_icon.ico', 'assets'), ('assets/hotkey_icon.png', 'assets'), ('hotkey_profiles/*.json', 'hotkey_profiles')],
     hiddenimports=[],
     hookspath=[],
@@ -23,7 +23,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='War3ReforgedHotkeys-v2.0.0',
+    name='War3ReforgedHotkeys-v2.0.1',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -37,5 +37,5 @@ exe = EXE(
     codesign_identity=None,
     entitlements_file=None,
     icon='assets/hotkey_icon.ico',
-    version='tools/war3_hotkey_200_version_info.txt',
+    version='tools/war3_hotkey_201_version_info.txt',
 )

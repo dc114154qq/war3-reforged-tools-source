@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Any
 
 
-APP_VERSION = "2.0.0"
+APP_VERSION = "2.0.1"
 APP_NAME_ZH = "魔兽争霸3重制版改键工具"
 APP_NAME_EN = "Warcraft III: Reforged Hotkey Tool"
 

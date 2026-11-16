@@ -37,6 +37,9 @@
 !/assets/hotkey_icon.png
 !/hotkey_profiles/3.0.0.24268.json
 !/hotkey_profiles/3.0.1.24323.json
+!/hotkey_profiles/3.0.1.24371.json
+!/test_hotkey_24371.py
+!/tools/war3_hotkey_profiles_24371.h
 !/requirements-hotkeys.txt
 !/test_hotkey_adapters.py
 !/test_hotkey_readiness.py
@@ -44,7 +47,7 @@
 !/test_war3_hotkey_tool.py
 !/tools/build_war3_hotkey_bridge.py
 !/tools/build_war3_hotkeys.py
-!/tools/war3_hotkey_200_version_info.txt
+!/tools/war3_hotkey_201_version_info.txt
 !/tools/war3_hotkey_bridge.c
 !/tools/war3_hotkey_bridge_core.c
 !/tools/war3_hotkey_bridge_profile.h

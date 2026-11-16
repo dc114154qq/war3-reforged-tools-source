@@ -15,7 +15,7 @@ def main():
     compiler = shutil.which("clang")
     if compiler is None:
         raise RuntimeError("LLVM clang with Windows x64 build tools is required")
-    for game_version in ("3.0.0.24268", "3.0.1.24323"):
+    for game_version in ("3.0.0.24268", "3.0.1.24323", "3.0.1.24371"):
         subprocess.run([sys.executable, str(ROOT / "tools/build_war3_hotkey_bridge.py"),
                         "--game-version", game_version], cwd=ROOT, check=True)
     output = ROOT / "tools/war3_hotkey_native_helper.dll"
